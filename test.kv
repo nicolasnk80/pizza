@@ -1,0 +1,278 @@
+<Manager>:
+	Main:
+		name:"main"
+	Login:
+		name:"login"
+<Main>:
+	BoxLayout:
+		orientation:"vertical"
+		canvas:
+			Color:
+				rgba:.1, .5, .7, 1
+			Rectangle:
+				pos:self.pos
+				size:self.size
+		BoxLayout:
+			canvas:
+				Color:
+					rgba:1, 1, 0, 1
+				RoundedRectangle:
+					pos:self.pos
+					size:self.size
+					radius:[10]
+			size_hint_y:.4
+			Label:
+				text:"Tech-Pizza"
+				bold:True
+				italic:True
+				color:0, 0, 1, 1
+				font_size:35
+		BoxLayout:
+			orientation:"vertical"
+			BoxLayout:
+				size_hint_y:None
+				height:"80dp"
+				padding:root.width * 0.15, "20dp"
+				spacing:"10dp"
+				TextInput:
+					hint_text:"Digite aqui"
+					multiline:False
+					size_hint_y:None
+					height:"35dp"
+				Button:
+					background_normal:"data/search.png"
+					background_down:"data/search.png"
+					border:0, 0, 0, 0
+					size_hint:None, None
+					size:"35dp", "35dp"
+			ScrollView:
+				BoxLayout:
+					orientation:"vertical"
+					size_hint_y:None
+					height:self.minimum_height
+					spacing:"10dp"
+					padding:"20dp", 0
+					Pizzas:
+					Pizzas:
+					Pizzas:
+					Pizzas:
+					Pizzas:
+					Pizzas:
+					Pizzas:
+					Pizzas:
+					Pizzas:
+		BoxLayout:
+			canvas:
+				Color:
+					rgba:.5, .6, .5, .5
+				Rectangle:
+					pos:self.pos
+					size:self.size
+			size_hint_y:None
+			height:"60dp"
+			padding:"20dp", self.height * 0.1
+			Button:
+				background_normal:"data/home.png"
+				background_down:"data/home.png"
+				border:0, 0, 0, 0
+				size_hint_x:None
+				width:"50dp"
+			BoxLayout:
+			Button:
+				background_normal:"data/purchase.png"
+				background_down:"data/purchase.png"
+				border:0, 0, 0, 0
+				size_hint_x:None
+				width:"50dp"
+			BoxLayout:
+			Button:
+				background_normal:"data/user.png"
+				background_down:"data/user.png"
+				border:0, 0, 0, 0
+				size_hint_x:None
+				width:"50dp"
+				on_release:
+					app.root.transition.direction = 'left'
+					app.root.current = "login"
+<Login>:
+	BoxLayout:
+		orientation:"vertical"
+		canvas:
+		    Color:
+		        rgba:.1, .5, .7, 1
+		    Rectangle:
+		        pos:self.pos
+		        size:self.size
+		BoxLayout:
+			orientation:"vertical"
+			padding:0, root.height * 0.1
+			Label:
+				text:"Acesse sua conta"
+				bold:True
+				font_size:"18sp"
+				color:1, 1, 0, 1
+				size_hint_y:None
+				height:"40dp"
+			BoxLayout:
+				orientation:"vertical"
+				size_hint_y:None
+				height:"180dp"
+				padding:"20dp", 0
+				spacing:"10dp"
+				BoxLayout:
+					orientation:"vertical"
+					size_hint_y:None
+					height:"70dp"
+					Label:
+						text:"E-mail"
+						font_size:"15sp"
+						color:1, 1, 0, 1
+						bold:True
+						size_hint_x:None
+						width:60
+					TextInput:
+						size_hint_y:None
+						height:"40dp"
+						hint_text:"Digite seu E-mail"
+						multiline:False
+				BoxLayout:
+					orientation:"vertical"
+					size_hint_y:None
+					height:"70dp"
+					Label:
+						text:"Senha"
+						font_size:"15sp"
+						color:1, 1, 0, 1
+						bold:True
+						size_hint_x:None
+						width:60
+					TextInput:
+						size_hint_y:None
+						height:"40dp"
+						hint_text:"Digite sua Senha"
+						multiline:False
+						password:True
+						id:senha
+				BoxLayout:
+					size_hint_y:None
+					height:"20dp"
+					padding:0, 10
+					Label:
+						text:"Esqueceu a senha?"
+						font_size:"15dp"
+						bold:True
+						color:1, 1, 0, 1
+						size_hint_x:None
+						width:root.width + root.width / 2.5
+		BoxLayout:
+			orientation:"vertical"
+			size_hint_y:None
+			height:"140dp"
+			padding:"30dp", "20dp"
+			spacing:"20dp"
+			EntrarButton:
+				text:"Entrar"
+				font_size:"18sp"
+				bold:True
+				size_hint_y:None
+				height:"45dp"
+			Label:
+				text:"Novo Cadastro"
+				font_size:"15sp"
+				color:1, 1, 0, 1
+				bold:True
+		BoxLayout:
+			canvas:
+				Color:
+					rgba:.5, .6, .5, .5
+				Rectangle:
+					pos:self.pos
+					size:self.size
+			size_hint_y:None
+			height:"60dp"
+			padding:"20dp", self.height * 0.1
+			Button:
+				background_normal:"data/home.png"
+				background_down:"data/home.png"
+				border:0, 0, 0, 0
+				size_hint_x:None
+				width:"50dp"
+				on_release:
+					app.root.transition.direction = 'right'
+					app.root.current = "main"
+			BoxLayout:
+			Button:
+				background_normal:"data/purchase.png"
+				background_down:"data/purchase.png"
+				border:0, 0, 0, 0
+				size_hint_x:None
+				width:"50dp"
+			BoxLayout:
+			Button:
+				background_normal:"data/user.png"
+				background_down:"data/user.png"
+				border:0, 0, 0, 0
+				size_hint_x:None
+				width:"50dp"
+				on_release:app.root.current = "login"
+<EntrarButton@ButtonBehavior+Label>:
+	canvas.before:
+		Color:
+			rgba:0, 0, 0, .5
+		RoundedRectangle:
+			pos:self.pos
+			size:self.size
+			radius:[10]
+<Pizzas>:
+	canvas:
+		Color:
+			rgba:0, 0, 0, .3#0.1, 0.5, 0.9, 1
+		RoundedRectangle:
+			pos:self.pos
+			size:self.size
+			radius:[10]
+	size_hint_y:None
+	height:"100dp"
+	padding:"20dp"
+	spacing:"50dp"
+	BoxLayout:
+		orientation:"vertical"
+		spacing:"10dp"
+		Label:
+			text:"Título"
+			bold:True
+			font_size:"20sp"
+			size_hint_x:None
+			width:"50dp"
+		BoxLayout:
+			spacing:"5dp"
+			BoxLayout:
+				size_hint:None, None
+				size:"15dp", "15dp"
+				Image:
+					source:"data/yello_star.png"
+			BoxLayout:
+				size_hint:None, None
+				size:"15dp", "15dp"
+				Image:
+					source:"data/yello_star.png"
+			BoxLayout:
+				size_hint:None, None
+				size:"15dp", "15dp"
+				Image:
+					source:"data/yello_star.png"
+			BoxLayout:
+				size_hint:None, None
+				size:"15dp", "15dp"
+				Image:
+					source:"data/black_star.png"
+			BoxLayout:
+				size_hint:None, None
+				size:"15dp", "15dp"
+				Image:
+					source:"data/black_star.png"
+	BoxLayout:
+		size_hint:None, None
+		size:"70dp", "40dp"
+		Image:
+			source:"data/capa.jpg"
